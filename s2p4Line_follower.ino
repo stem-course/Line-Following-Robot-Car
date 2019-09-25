@@ -1,5 +1,5 @@
 /*
-Code by: www.munphurid.com
+Code by:
 Syed Rafay Hashmi and Wardah Arshad
 
 This is a code for Line following Robot
@@ -8,27 +8,29 @@ Hardware:
 Is bought from www.munphurid.com
 -Arduino UNO
 -Motor driver module L298N
--Munphurid Chassis MN CS01 (Light weight 3 wheeler chassis can also be used)
--4 IR Sensor
--7V to 12V battery
+-Light weight 3 wheeler chassis
+-4 Long range IR Sensors
+-Li ion cell with holder
 -10 male to female wires
 
 Connections:
 Motor driver module and Arduino
--Connect IN1 to pin 8 of Arduino
--Connect IN2 to pin 13 of Arduino
--Connect IN3 to pin 9 of Arduino
--Connect IN4 to pin 6 of Arduino
--Connect ENA to pin 2 of Arduino
--Connect ENB to pin 7 of Arduino
+-Connect IN1 to pin 4 of Arduino
+-Connect IN2 to pin 5 of Arduino
+-Connect IN3 to pin 6 of Arduino
+-Connect IN4 to pin 7 of Arduino
+-Connect ENA to pin 8 of Arduino
+-Connect ENB to pin 9 of Arduino
 -Connect 5V of module to 5V of Arduino
 -Connect GND of module to GND of Arduino
 
-
 IR sensor and Arduino
--Connect OUT of IR sensor to pin 13,2,3,4 of Arduino respectively
--Connect VCC of IR sensor to 5V of Arduino
--Connect GND of IR sensor to GND of Arduino
+- Connect GND of all IR modules to GND of Arduino board.
+-	Connect 5V of all IR modules to 5V of Arduino board.
+-	Connect OUT of left IR module to pin 3 of the Arduino board.
+-	Connect OUT of center left IR module to pin 10 of the Arduino board.
+-	Connect OUT of center right IR module to pin 11 of the Arduino board.
+-	Connect OUT of right IR module to pin 12 of the Arduino board.
 
 Motors
 Connect motors to motor driver module
@@ -43,27 +45,27 @@ void right();         // Right Function
 void left();          // Left Function
 void halt();          //Stop Function
 
-int ENA=9;            //Connect pin of ENA to pin 9
-int ENB=10;            //Connect pin of ENB to pin 10
+int ENA=8;            //Connect pin of ENA to pin 9
+int ENB=9;            //Connect pin of ENB to pin 10
 
-int IN1=5;            //Connect pin of IN1 to pin 5
-int IN2=6;            //Connect pin of IN2 to pin 6
-int IN3=7;            //Connect pin of IN3 to pin 7
-int IN4=8;            //Connect pin of IN4 to pin 8
+int IN1=4;            //Connect pin of IN1 to pin 5
+int IN2=5;            //Connect pin of IN2 to pin 6
+int IN3=6;            //Connect pin of IN3 to pin 7
+int IN4=7;            //Connect pin of IN4 to pin 8
 
 int ir1,ir2,ir3,ir4;  //defining Variables for IR Sensor
 
-int leftir1 =13;      //MOST LEFT IR SENSOR
-int leftir2=2;        // MIDDLE LEFT IR SENSOR
-int rightir1=3;       // MIDDLE RIGHT IR SENSOR
-int rightir2=4;       // MOST RIGHT IR SENSOR
+int leftir1 =3;      //MOST LEFT IR SENSOR
+int leftir2=10;        // MIDDLE LEFT IR SENSOR
+int rightir1=11;       // MIDDLE RIGHT IR SENSOR
+int rightir2=12;       // MOST RIGHT IR SENSOR
 
 void forward()        //Forward Function
 {
-  analogWrite(ENA,200);  
+  analogWrite(ENA,200);       //Set speed of motion of motorA
   digitalWrite(IN1,HIGH);
   digitalWrite(IN2,LOW);
-  analogWrite(ENB,200);
+  analogWrite(ENB,200);         //Set speed of motion of motorB
   digitalWrite(IN3,HIGH);
   digitalWrite(IN4,LOW);
 
